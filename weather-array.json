@@ -1,0 +1,62 @@
+[
+    {
+        "object-1": {
+            "id": 1,
+            "children": [
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "object-2": {
+            "id": 2,
+            "children": [
+                1,
+                2
+            ]
+        }
+    },
+    {
+        "object-2": {
+            "id": 3,
+            "children": []
+        }
+    },
+    {
+        "object-2": {
+            "id": 4,
+            "children": [
+                5
+            ]
+        }
+    },
+    {
+        "object-2": {
+            "id": 5,
+            "children": [
+                4,
+                2
+            ]
+        }
+    },
+    {
+        "object-2": {
+            "id": 6,
+            "children": [
+                5,
+                2
+            ]
+        }
+    },
+    {
+        "object-2": {
+            "id": 7,
+            "children": [
+                4,
+                2,
+                1
+            ]
+        }
+    }
+]
