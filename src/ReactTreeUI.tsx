@@ -25,7 +25,7 @@ type Data = {
   nodeContainerClass: string
 }
 
-export default class ReactTree extends Component<Props, State> {
+export default class ReactTreeUI extends Component<Props, State> {
   config: Props;
 
   constructor(props: Props) {
