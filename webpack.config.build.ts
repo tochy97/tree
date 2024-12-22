@@ -2,7 +2,7 @@ import path from 'path';
 
 module.exports = {
   entry: {
-    Weather: './src/index.tsx',
+    Tree: './src/index.tsx',
   },
   mode: "production",
   module: {
