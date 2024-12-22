@@ -1,13 +1,13 @@
 {
-  "name": "@egeonu/weather",
+  "name": "@egeonu/tree",
   "version": "1.0.9",
-  "main": "lib/Weather.mjs",
+  "main": "lib/Tree.mjs",
   "files": [
     "lib/**/*"
   ],
   "type": "module",
   "dependencies": {
-    "@egeonu/weather": "file:",
+    "@egeonu/tree": "file:",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
@@ -16,7 +16,6 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
-    "weather": "file:",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -47,12 +46,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tochy97/weather.git"
+    "url": "git+https://github.com/tochy97/tree-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/tochy97/weather/issues"
+    "url": "https://github.com/tochy97/tree-ui/issues"
   },
-  "homepage": "https://github.com/tochy97/weather#readme",
+  "homepage": "https://github.com/tochy97/tree-ui#readme",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/dom": "^10.4.0",
