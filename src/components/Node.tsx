@@ -1,12 +1,14 @@
 import React from 'react'
 
 class Node extends HTMLElement {
+    static observedAttributes = ["color", "size", "open", "disabled", "visible"]
+
     get open() {
-        return this.hasAttribute('open');
+        return this.getAttribute('open');
     }
-    set open(val) {
-        this.setAttribute('open', '');
-        this.toggleCollapse();
+    set open(val: string) {
+        this.setAttribute('open', val);
+        this.toggleOpen();
     }
 
     get disabled() {
@@ -34,13 +36,13 @@ class Node extends HTMLElement {
             if (this.disabled) {
                 return;
             }
-            this.toggleCollapse();
+            this.toggleOpen();
         });
     }
 
-    toggleCollapse() {
+    toggleOpen() {
         // ...
     }
 }
 
-window.customElements.define('tree-node', Node);
+customElements.define('tree-node', Node);

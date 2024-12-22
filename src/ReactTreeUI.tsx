@@ -1,70 +1,45 @@
 import React, { Component, ReactElement } from 'react'
 
-type Props = {
+type Config = {
+  type: string
+  name: string
+  limit: number
   data: Array<any>
-  header?: string
-  type?: string
   collapsible?: boolean
 }
 
-type State = Props & {
+type Node = {
+  name?: string
+  data: object
+  parents?: Array<any>
+}
+
+type TreeNode = Node & {
+  id: any
+  children?: Array<Node>
+  onclick?: Function
+  nodeContainerClass?: string
+}
+
+type State = {
   loaded: boolean
 }
 
-type Node = {
-  children: Array<Node>
-  id: any
-}
+export default class ReactTreeUI extends Component<Config, State> {
+  config: Config;
+  data: any;
 
-type Data = {
-  id: string
-  name: string
-  onclick?: Function
-  data?: any
-  children?: Array<any>
-  nodeContainerClass: string
-}
-
-export default class ReactTreeUI extends Component<Props, State> {
-  config: Props;
-
-  constructor(props: Props) {
+  constructor(props: Config) {
     super(props);
-    this.state = {
-      loaded: false,
-      data: props.data,
-      type: typeof props.data === "string" ? props.data : "tree",
-      collapsible: typeof props.collapsible === "boolean" ? props.collapsible : true
-    }
-    this.createTree();
+    this.config = props;
     this.state = { 
       ...this.state,
       loaded: true
     }
   }
 
-  createTree(): Array<Node> {
-    const output:Array<Node> = [];
-    for (const object of this.config.data) {
-      const newNode:Node = {
-        id: object.id,
-        children: this.createChildren(this.config.data)
-      }
-      output.push(newNode);
-    }
-    return output;
-  }
+  createNode() {
 
-  createChildren(children: Array<any>): Array<Node> {
-    const output: Array<Node> = [];
-    for (const object of children) {
-      const newNode: Node = {
-        id: object.id,
-        children: this.createChildren(this.config.data)
-      }
-      output.push(newNode);
-    }
-    return output;
   }
 
   render() {
