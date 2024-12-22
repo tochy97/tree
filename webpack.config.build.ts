@@ -2,7 +2,7 @@ import path from 'path';
 
 module.exports = {
   entry: {
-    Tree: './src/index.tsx',
+    Tree: './src/index.ts',
   },
   mode: "production",
   module: {
