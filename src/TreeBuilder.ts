@@ -13,7 +13,7 @@ type TreeNode = Node & {
     children?: Array<Node>
 }
   
-export class ReactTree {
+export class TreeBuilder {
     public config?: Config;
     public data?: Array<TreeNode> = [];
 
@@ -21,17 +21,17 @@ export class ReactTree {
         const self = this;
         self.config = {...props};
         if (typeof this.config.data !== "undefined") {
-            self.data = ReactTree.createTree(this.config.data);
+            self.data = TreeBuilder.createTree(this.config.data);
             return ((self) => ({
                 config: self.config,
                 data: self.data,
-                createTree: ReactTree.createTree.bind(self)
+                createTree: TreeBuilder.createTree.bind(self)
             }))(self)
         }
         return ((self) => ({
             config: self.config,
             data: null,
-            createTree: ReactTree.createTree.bind(self)
+            createTree: TreeBuilder.createTree.bind(self)
         }))(self)
     }
 
@@ -41,7 +41,7 @@ export class ReactTree {
             if (typeof inputs[i].parents === "undefined") {
                 const newNode: TreeNode = {
                     id: inputs[i].id,
-                    children: this.createChildren(inputs, inputs[i].id),
+                    children: TreeBuilder.createChildren(inputs, inputs[i].id),
                     data: inputs[i].data
                 }
                 output.push(newNode);
@@ -59,7 +59,7 @@ export class ReactTree {
                         const myId = parentId + '.' + i;
                         const newNode: TreeNode = {
                             id: inputs[i].id,
-                            children: ReactTree.createChildren(inputs, inputs[i].id),
+                            children: this.createChildren(inputs, inputs[i].id),
                             data: inputs[i].data
                         }
                         output.push(newNode);

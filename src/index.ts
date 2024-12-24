@@ -1,4 +1,4 @@
-import ReactTreeUI from "./ReactTreeUI";
+import ReactTree from "./ReactTree";
 
-export default ReactTreeUI;
-export { ReactTree } from "./ReactTree" 
+export default ReactTree;
+export { TreeBuilder } from "./TreeBuilder" 
