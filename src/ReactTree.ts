@@ -41,7 +41,7 @@ export class ReactTree {
             if (typeof inputs[i].parents === "undefined") {
                 const newNode: TreeNode = {
                     id: inputs[i].id,
-                    children: ReactTree.createChildren(inputs, inputs[i].id),
+                    children: this.createChildren(inputs, inputs[i].id),
                     data: inputs[i].data
                 }
                 output.push(newNode);
