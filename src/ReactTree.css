@@ -8,32 +8,8 @@
     min-width: 10em;
 }
 
-.update_button:hover {
-    cursor: pointer;
-}
-
-@-moz-keyframes spin {
-    to {
-        -moz-transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes spin {
-    to {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.spin {
-    animation: spin 1000ms linear infinite;
-}
-
-.temperature {
-    font-size: 3em;
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

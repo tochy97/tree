@@ -1,18 +1,5 @@
-type Config = {
-    data?: Array<any>
-}
+import { Config, TreeNode, Node } from "./types"
 
-type Node = {
-    id: any
-    name?: string
-    data: object
-    parents?: any
-}
-
-type TreeNode = Node & {
-    children?: Array<Node>
-}
-  
 export class TreeBuilder {
     public config?: Config;
     public data?: Array<TreeNode> = [];

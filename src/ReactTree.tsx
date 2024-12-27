@@ -1,53 +1,56 @@
 import React, { Component, ReactElement } from 'react'
-import { TreeBuilder } from './TreeBuilder'
+import { TreeBuilder } from './'
 
-type Config = {
-  type: string
-  name: string
-  limit: number
-  data: Array<any>
-  collapsible?: boolean
-}
+import { Config, TreeNode, Node } from "./types"
+import "./ReactTree.css"
+import { container } from 'webpack';
 
-type Node = {
-  name?: string
-  data: object
-  parents?: Array<any>
-}
-
-type TreeNode = Node & {
-  id: any
-  children?: Array<Node>
-  onclick?: Function
-  nodeContainerClass?: string
-}
-
-type State = {
-  loaded: boolean
-}
-
-export default class ReactTree extends Component<Config, State> {
-  config: Config;
-  data: any;
-  treeBuilder: TreeBuilder;
-
+export default class ReactTree extends Component<Config> {
+  tree: Array<TreeNode>;
   constructor(props: Config) {
     super(props);
-    this.config = props;
-    this.treeBuilder = new TreeBuilder();
-    this.state = { 
-      ...this.state,
-      loaded: true
+    this.tree = TreeBuilder.createTree(this.props.data);
+  }
+
+  componentDidMount(): void {
+    this.startMap = this.startMap.bind(this);
+    this.startMap(this.tree);
+  }
+
+  startMap (tree: Array<TreeNode>) {
+    const container = document.getElementById("container");
+    const row = document.createElement("div");
+    for (const object of tree) {
+      row.classList.add("row");
+      const element = document.createElement("div");
+      element.setAttribute("id", object.id);
+      element.innerHTML = object.id;
+      if (object.children.length > 0) {
+        this.mapTree(element, object.children);
+      }
+      row.appendChild(element);
+      container.appendChild(row)
     }
   }
 
-  createNode() {
-
+  mapTree (container: HTMLDivElement, tree: Array<TreeNode>) {
+    const row = document.createElement("div");
+    for (const object of tree) {
+      row.classList.add("row");
+      const element = document.createElement("div");
+      element.setAttribute("id", object.id);
+      element.innerHTML = object.id;
+      if (object.children.length > 0) {
+        this.mapTree(element, object.children);
+      }
+      row.appendChild(element);
+      container.appendChild(row)
+    }
   }
 
   render() {
     return (
-      <></>
+      <div id="container"></div>
     )
   }
 }

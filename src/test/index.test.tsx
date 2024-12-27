@@ -68,7 +68,7 @@ it('TreeBuilder: constuctor', () => {
     expect(tree.data).not.toBe(null);
 });
 
-it('ReactTreeUI: static invoke', () => {
+it('TreeBuilder: static invoke', () => {
     const input = [
         {
             id: 1,
