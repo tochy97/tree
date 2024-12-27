@@ -1,9 +1,8 @@
-import React, { Component, ReactElement } from 'react'
+import React, { Component } from 'react'
 import { TreeBuilder } from './'
 
-import { Config, TreeNode, Node } from "./types"
+import { Config, TreeNode } from "./types"
 import "./ReactTree.css"
-import { container } from 'webpack';
 
 export default class ReactTree extends Component<Config> {
   tree: Array<TreeNode>;
@@ -46,7 +45,7 @@ export default class ReactTree extends Component<Config> {
       element.setAttribute("id", object.id);
       element.innerHTML = object.id;
       if (object.children.length > 0) {
-        this.mapTree(element, object.children, gap + 2);
+        this.mapTree(element, object.children, gap + 1);
       }
       row.appendChild(element);
       container.appendChild(row)
