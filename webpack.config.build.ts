@@ -1,3 +1,4 @@
+import path from 'path';
 
 export default {
   entry: {
@@ -22,7 +23,7 @@ export default {
   },
   output: {
     filename: '[name].mjs',
-    path: "/lib",
+    path: path.resolve(__dirname, 'lib'),
     library: {
       type: "module",
     },
