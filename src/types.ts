@@ -5,7 +5,7 @@ export type Config = {
     collapsible?: boolean
     gap?: string
     nodeContainerClass?: string
-    onclick?: (this: GlobalEventHandlers, ev: MouseEvent) => any
+    onclick?: any
 }
 
 export type Node = {

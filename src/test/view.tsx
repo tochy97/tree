@@ -71,6 +71,7 @@ const input = [
       }
   },
 ]
+
 root.render(
     <ReactTree data={input} />
 );

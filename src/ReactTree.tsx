@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { TreeBuilder } from './'
 
-import { Config, TreeNode } from "./types"
+import { Config, Node, TreeNode } from "./types"
 import "./ReactTree.css"
 
 export default class ReactTree extends Component<Config> {
@@ -17,10 +17,11 @@ export default class ReactTree extends Component<Config> {
   }
 
   startMap (tree: Array<TreeNode>) {
+    let self = this;
     const container = document.getElementById("container");
     for (const object of tree) {
-      const row = document.createElement("div");
-      row.classList.add("row");
+      const children = document.createElement("div");
+      children.classList.add("children");
       const element = document.createElement("div");
       element.classList.add("element");
       element.style.border = "2px dotted red";
@@ -29,20 +30,37 @@ export default class ReactTree extends Component<Config> {
       const leaf = document.createElement("div");
       leaf.classList.add("leaf");
       leaf.innerHTML = object.data?.content ? object.data?.content : "";
-      leaf.onclick = this.props.onclick;
+      leaf.onclick = function (this: HTMLElement, ev: MouseEvent) {
+        const rowElement = this.parentElement.lastElementChild as HTMLElement;
+        if ( rowElement.className === "children") {
+          if (rowElement.style.display === "flex" || rowElement.style.display === "") {
+            rowElement.style.display = "none";
+          }
+          else {
+            rowElement.style.display = "flex";
+          }
+        }
+
+        if (typeof self.props.onclick === "function") {
+          return self.props.onclick();
+        }
+      };
       element.appendChild(leaf)
       if (object.children.length > 0) {
-        this.mapTree(element, object.children, 2);
+        leaf.innerHTML = "&#9;+" + leaf.innerHTML;
+        self.mapTree(element, object.children, 2);
       }
-      row.appendChild(element);
-      container.appendChild(row);
+      children.style.display = "flex"
+      children.appendChild(element);
+      container.appendChild(children);
     }
   }
 
   mapTree (container: HTMLDivElement, tree: Array<TreeNode>, gap: number) {
-    const row = document.createElement("div");
+    let self = this;
+    const children = document.createElement("div");
     for (const object of tree) {
-      row.classList.add("row");
+      children.classList.add("children");
       const element = document.createElement("div");
       element.classList.add("element");
       element.style.border = "2px dotted red";
@@ -51,14 +69,30 @@ export default class ReactTree extends Component<Config> {
       const leaf = document.createElement("div");
       leaf.classList.add("leaf");
       leaf.innerHTML = object.data?.content ? object.data?.content : "";
-      leaf.onclick = this.props.onclick;
+
+      leaf.onclick = function (this: HTMLElement, ev: MouseEvent) {
+        const rowElement = this.parentElement.lastElementChild as HTMLElement;
+        if ( rowElement.className === "children") {
+          if (rowElement.style.display === "flex" || rowElement.style.display === "") {
+            rowElement.style.display = "none";
+          }
+          else {
+            rowElement.style.display = "flex";
+          }
+        }
+
+        if (typeof self.props.onclick === "function") {
+          return self.props.onclick();
+        }
+      };
       element.appendChild(leaf)
       if (object.children.length > 0) {
-        this.mapTree(element, object.children, gap);
+        leaf.innerHTML = "+&#9;" + leaf.innerHTML;
+        self.mapTree(element, object.children, gap);
       }
-      row.appendChild(element);
-      container.appendChild(row)
+      children.appendChild(element);
     }
+    container.appendChild(children);
   }
 
   render() {
