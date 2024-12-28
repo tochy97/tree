@@ -27,7 +27,7 @@ export default class ReactTree extends Component<Config> {
       element.setAttribute("id", object.id);
       element.innerHTML = object.id;
       if (object.children.length > 0) {
-        this.mapTree(element, object.children, 1);
+        this.mapTree(element, object.children, 2);
       }
       row.appendChild(element);
       container.appendChild(row);
@@ -40,12 +40,14 @@ export default class ReactTree extends Component<Config> {
       row.classList.add("row");
       const element = document.createElement("div");
       element.style.border = "2px dotted red";
+      element.style.padding = ".5em"
       element.style.marginInline = gap + "em";
+      element.style.marginTop = gap + "em";
       element.style.textAlign = "center";
       element.setAttribute("id", object.id);
       element.innerHTML = object.id;
       if (object.children.length > 0) {
-        this.mapTree(element, object.children, gap + 1);
+        this.mapTree(element, object.children, gap);
       }
       row.appendChild(element);
       container.appendChild(row)

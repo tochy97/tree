@@ -3,6 +3,7 @@ export type Config = {
     type?: string
     name?: string
     collapsible?: boolean
+    gap?: string
 }
 
 export type Node = {

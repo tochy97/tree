@@ -1,6 +1,5 @@
-import path from 'path';
 
-module.exports = {
+export default {
   entry: {
     Tree: './src/index.ts',
   },
@@ -23,7 +22,7 @@ module.exports = {
   },
   output: {
     filename: '[name].mjs',
-    path: path.resolve(__dirname, 'lib'),
+    path: "/lib",
     library: {
       type: "module",
     },
