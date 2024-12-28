@@ -80,8 +80,5 @@ import { TreeBuilder } from "@egeonu/react-tree";
 ]
 ```
 ## To-Do
-1. Collapsability
-2. Style options: flat, tree, horizontal and vertical
-3. Add onclick and optional callback input
-4. Hover style child to parent
-5. Draw connector lines with SVG
+1. Style options: flat, tree, horizontal and vertical
+2. Draw connector lines with SVG

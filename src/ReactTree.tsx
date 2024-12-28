@@ -28,7 +28,6 @@ export default class ReactTree extends Component<Config> {
       element.style.textAlign = "center";
       element.setAttribute("id", object.id);
       const leaf = document.createElement("div");
-      leaf.classList.add("leaf");
       leaf.innerHTML = object.data?.content ? object.data?.content : "";
       leaf.onclick = function (this: HTMLElement, ev: MouseEvent) {
         const rowElement = this.parentElement.lastElementChild as HTMLElement;
@@ -40,17 +39,16 @@ export default class ReactTree extends Component<Config> {
             rowElement.style.display = "flex";
           }
         }
-
         if (typeof self.props.onclick === "function") {
           return self.props.onclick();
         }
       };
-      element.appendChild(leaf)
+      element.appendChild(leaf);
       if (object.children.length > 0) {
-        leaf.innerHTML = "&#9;+" + leaf.innerHTML;
+        leaf.classList.add("leaf");
         self.mapTree(element, object.children, 2);
       }
-      children.style.display = "flex"
+      children.style.display = "flex";
       children.appendChild(element);
       container.appendChild(children);
     }
@@ -67,9 +65,7 @@ export default class ReactTree extends Component<Config> {
       element.style.textAlign = "center";
       element.setAttribute("id", object.id);
       const leaf = document.createElement("div");
-      leaf.classList.add("leaf");
       leaf.innerHTML = object.data?.content ? object.data?.content : "";
-
       leaf.onclick = function (this: HTMLElement, ev: MouseEvent) {
         const rowElement = this.parentElement.lastElementChild as HTMLElement;
         if ( rowElement.className === "children") {
@@ -85,9 +81,9 @@ export default class ReactTree extends Component<Config> {
           return self.props.onclick();
         }
       };
-      element.appendChild(leaf)
+      element.appendChild(leaf);
       if (object.children.length > 0) {
-        leaf.innerHTML = "+&#9;" + leaf.innerHTML;
+        leaf.classList.add("leaf");
         self.mapTree(element, object.children, gap);
       }
       children.appendChild(element);
