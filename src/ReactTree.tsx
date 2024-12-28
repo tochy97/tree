@@ -93,7 +93,7 @@ export default class ReactTree extends Component<Config> {
 
   render() {
     return (
-      <div id="container"></div>
+      <div id="container" className='container'></div>
     )
   }
 }

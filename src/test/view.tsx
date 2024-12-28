@@ -70,6 +70,12 @@ const input = [
         content: "Apollo GraphQL"
       }
   },
+  {
+      id: "Apollo GraphQL",
+      data: {
+        content: "Apollo GraphQL"
+      }
+  },
 ]
 
 root.render(
