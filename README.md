@@ -41,8 +41,10 @@ import { TreeBuilder } from "@egeonu/react-tree";
     // without props
     const tree2 = new TreeBuilder();
     tree2.createTree(input);
+    console.log(tree2.data);
     // static invoke
-    const data = TreeBuilder.createTree(input);
+    const tree3 = TreeBuilder.createTree(input);
+    console.log(tree3);
 ```
 #### Same expected output 
 ```js

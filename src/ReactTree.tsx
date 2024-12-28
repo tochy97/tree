@@ -22,10 +22,15 @@ export default class ReactTree extends Component<Config> {
       const row = document.createElement("div");
       row.classList.add("row");
       const element = document.createElement("div");
+      element.classList.add("element");
       element.style.border = "2px dotted red";
       element.style.textAlign = "center";
       element.setAttribute("id", object.id);
-      element.innerHTML = object.id;
+      const leaf = document.createElement("div");
+      leaf.classList.add("leaf");
+      leaf.innerHTML = object.data?.content ? object.data?.content : "";
+      leaf.onclick = this.props.onclick;
+      element.appendChild(leaf)
       if (object.children.length > 0) {
         this.mapTree(element, object.children, 2);
       }
@@ -39,13 +44,15 @@ export default class ReactTree extends Component<Config> {
     for (const object of tree) {
       row.classList.add("row");
       const element = document.createElement("div");
+      element.classList.add("element");
       element.style.border = "2px dotted red";
-      element.style.padding = ".5em"
-      element.style.marginInline = gap + "em";
-      element.style.marginTop = gap + "em";
       element.style.textAlign = "center";
       element.setAttribute("id", object.id);
-      element.innerHTML = object.id;
+      const leaf = document.createElement("div");
+      leaf.classList.add("leaf");
+      leaf.innerHTML = object.data?.content ? object.data?.content : "";
+      leaf.onclick = this.props.onclick;
+      element.appendChild(leaf)
       if (object.children.length > 0) {
         this.mapTree(element, object.children, gap);
       }

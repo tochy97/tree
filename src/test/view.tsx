@@ -9,24 +9,67 @@ const root = ReactDOM.createRoot(
 
 const input = [
   {
-      id: 1,
+      id: "Frontend",
+      data: {
+        content: "Frontend"
+      }
   },
   {
-      id: 2,
-      parents: [1]
+      id: "Javascript",
+      parents: ["Frontend"],
+      data: {
+        content: "Javascript"
+      }
   },
   {
-      id: 3,
-      parents: [2, 1]
+      id: "CSS",
+      parents: ["Frontend"],
+      data: {
+        content: "CSS"
+      }
   },
   {
-      id: 4,
-      parents: [2]
+      id: "HTML",
+      parents: ["Frontend"],
+      data: {
+        content: "HTML"
+      }
   },
   {
-      id: 5,
-      parents: [2, 3, 4]
-  }
+      id: "Typescript",
+      parents: ["Javascript"],
+      data: {
+        content: "Typescript"
+      }
+  },
+  {
+      id: "React",
+      parents: ["Javascript"],
+      data: {
+        content: "React"
+      }
+  },
+  {
+      id: "Redux",
+      parents: ["React"],
+      data: {
+        content: "Redux"
+      }
+  },
+  {
+      id: "Ant Design",
+      parents: ["React"],
+      data: {
+        content: "Ant Design"
+      }
+  },
+  {
+      id: "Apollo GraphQL",
+      parents: ["React"],
+      data: {
+        content: "Apollo GraphQL"
+      }
+  },
 ]
 root.render(
     <ReactTree data={input} />

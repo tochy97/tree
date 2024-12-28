@@ -35,7 +35,7 @@ export default {
   ],
   devServer: {
     static: {
-      directory: "/lib",
+      directory: path.resolve(__dirname, 'lib'),
     },
     port: 8000,
   },

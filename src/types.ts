@@ -4,18 +4,17 @@ export type Config = {
     name?: string
     collapsible?: boolean
     gap?: string
+    nodeContainerClass?: string
+    onclick?: (this: GlobalEventHandlers, ev: MouseEvent) => any
 }
 
 export type Node = {
     id: any
     name?: string
-    data: object
+    data: any
     parents?: Array<any>
 }
 
 export type TreeNode = Node & {
-    id: any
     children?: Array<Node>
-    onclick?: Function
-    nodeContainerClass?: string
 }
