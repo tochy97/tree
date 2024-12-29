@@ -3,8 +3,11 @@ export type Config = {
     type?: string
     name?: string
     collapsible?: boolean
-    gap?: string
-    nodeContainerClass?: string
+    tree_container_class?: string
+    tree_children_class?: string
+    tree_element_class?: string
+    tree_leaf_class?: string
+    tree_parent_class?: string
     onclick?: any
 }
 

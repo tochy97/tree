@@ -1,0 +1,57 @@
+
+export class TreeNodeElement extends HTMLElement {
+    static observedAttributes = ["childrenId", "hiddenChildren", "disabled"];
+
+    constructor() {
+        super();
+        this.addEventListener('click', e => {
+            if (this.disabled || !this.childrenId) {
+              return;
+            }
+            
+            if (this.hiddenChildren) {
+                document.getElementById(this.childrenId).style.display = "flex";
+                this.removeAttribute('hiddenChildren');
+            }
+            else {
+                document.getElementById(this.childrenId).style.display = "none";
+                this.setAttribute('hiddenChildren', '');
+            }
+          });
+    }
+
+    set hiddenChildren(val) {
+        if (val) {
+            this.setAttribute('hiddenChildren', '');
+        } else {
+            this.removeAttribute('hiddenChildren');
+        }
+    }
+
+    get hiddenChildren() {
+        return this.hasAttribute("hiddenChildren");
+    }
+
+    get disabled() {
+        return this.hasAttribute('disabled');
+    }
+
+    set disabled(val) {
+        if (val) {
+            this.setAttribute('disabled', '');
+        } else {
+            this.removeAttribute('disabled');
+        }
+    }
+
+    set childrenId(id: string) {
+        this.setAttribute("rowId", id);
+    }
+
+    get childrenId() {
+        return this.getAttribute("rowId");
+    }
+
+}
+
+window.customElements.define("tree-node", TreeNodeElement)
