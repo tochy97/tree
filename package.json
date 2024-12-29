@@ -47,12 +47,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tochy97/tree-ui.git"
+    "url": "git+https://github.com/tochy97/tree.git"
   },
   "bugs": {
-    "url": "https://github.com/tochy97/tree-ui/issues"
+    "url": "https://github.com/tochy97/tree/issues"
   },
-  "homepage": "https://github.com/tochy97/tree-ui#readme",
+  "homepage": "https://github.com/tochy97/tree#readme",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/dom": "^10.4.0",
