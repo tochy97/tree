@@ -7,75 +7,27 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+
 const input = [
   {
-      id: "Frontend",
-      data: {
-        content: "Frontend"
-      }
+      id: 1,
   },
   {
-      id: "Javascript",
-      parents: ["Frontend"],
-      data: {
-        content: "Javascript"
-      }
+      id: 2,
+      parents: [1]
   },
   {
-      id: "CSS",
-      parents: ["Frontend"],
-      data: {
-        content: "CSS"
-      }
+      id: 3,
+      parents: [2, 1]
   },
   {
-      id: "HTML",
-      parents: ["Frontend"],
-      data: {
-        content: "HTML"
-      }
+      id: 4,
+      parents: [2]
   },
   {
-      id: "Typescript",
-      parents: ["Javascript"],
-      data: {
-        content: "Typescript"
-      }
-  },
-  {
-      id: "React",
-      parents: ["Javascript"],
-      data: {
-        content: "React"
-      }
-  },
-  {
-      id: "Redux",
-      parents: ["React"],
-      data: {
-        content: "Redux"
-      }
-  },
-  {
-      id: "Ant Design",
-      parents: ["React"],
-      data: {
-        content: "Ant Design"
-      }
-  },
-  {
-      id: "Apollo GraphQL",
-      parents: ["React"],
-      data: {
-        content: "Apollo GraphQL"
-      }
-  },
-  {
-      id: "Apollo GraphQL",
-      data: {
-        content: "Apollo GraphQL"
-      }
-  },
+      id: 5,
+      parents: [2, 3, 4]
+  }
 ]
 
 root.render(

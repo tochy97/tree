@@ -20,6 +20,7 @@
     "sourceMap": true,
   },
   "exclude": [
-      "./src/test"
+      "./src/test",
+      "./src/README"
   ]
 }

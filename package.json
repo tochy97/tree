@@ -1,5 +1,5 @@
 {
-  "name": "@egeonu/react-tree",
+  "name": "@egeonu/tree",
   "version": "0.0.1",
   "main": "lib/Tree.mjs",
   "files": [
@@ -8,6 +8,7 @@
   "type": "module",
   "dependencies": {
     "@egeonu/react-tree": "file:",
+    "@egeonu/tree": "file:",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",

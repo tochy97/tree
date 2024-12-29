@@ -25,6 +25,8 @@
     width: fit-content;
     padding: .5em;
     border-radius: .25em;
+    border-radius: .5em;
+    border: 2px solid black;
 }
 
 .tree_leaf:hover {
@@ -34,5 +36,5 @@
 
 .tree_parent {
     border-radius: .5em;
-    border: 2px dotted red;
+    border: 2px dotted black;
 }
