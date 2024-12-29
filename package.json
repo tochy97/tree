@@ -1,6 +1,6 @@
 {
   "name": "@egeonu/tree",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/Tree.mjs",
   "files": [
     "lib/**/*"
@@ -67,5 +67,9 @@
     "typescript-eslint": "^8.17.0",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4"
-  }
+  },
+  "keywords": [
+    "react",
+    "tree-ui"
+  ]
 }
