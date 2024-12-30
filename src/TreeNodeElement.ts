@@ -45,11 +45,11 @@ export class TreeNodeElement extends HTMLElement {
     }
 
     set childrenId(id: string) {
-        this.setAttribute("rowId", id);
+        this.setAttribute("childrenId", id);
     }
 
     get childrenId() {
-        return this.getAttribute("rowId");
+        return this.getAttribute("childrenId");
     }
 
 }

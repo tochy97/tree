@@ -58,7 +58,7 @@ export default class ReactTree extends Component<Config> {
     const child_id = container.id + "-row";
     children.setAttribute("id", child_id);
     // Add children container id to the parent
-    parentLeaf.setAttribute("rowId", child_id);
+    parentLeaf.setAttribute("childrenId", child_id);
     for (const object of tree) {
       // Create contanier for the node
       const element = document.createElement("div");
