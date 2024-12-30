@@ -170,7 +170,7 @@ import { TreeBuilder } from "@egeonu/tree";
     container.appendChild(children);
   }
 ```
-* In this example we set the attribute `rowId` with the id of the element we expect to hold the children of the current node.
+* In this example we set the attribute `rowId` with the `child_id` representing the element we expect to hold the children of the current node.
 * I choose to build `child_id` from a concatenation of all the parent ids' with the child to avoid collisions.
 * This allows for the built in event listener to handle closing and opening the element holding the children.
 ## To-Do

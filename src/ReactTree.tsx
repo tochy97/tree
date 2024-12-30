@@ -41,6 +41,7 @@ export default class ReactTree extends Component<Config> {
       element.appendChild(leaf);
       if (object.children.length > 0) {
         leaf.classList.add(this.config.tree_leaf_class);
+        leaf.classList.add("tree_leaf_click");
         // Map children for this node
         self.mapTree(element, object.children, 2, leaf);
       }
@@ -62,14 +63,15 @@ export default class ReactTree extends Component<Config> {
       // Create contanier for the node
       const element = document.createElement("div");
       element.classList.add(this.config.tree_element_class);
-      element.setAttribute("id", object.id + "-" + container.id);
+      element.setAttribute("id", container.id + "-" + object.id);
       // Create container to hold node data
       const leaf = document.createElement("tree-node") as TreeNodeElement;
       element.appendChild(leaf);
       leaf.innerHTML = object.data?.content ? object.data?.content : "";
+      leaf.classList.add(this.config.tree_leaf_class);
       if (object.children.length > 0) {
         element.classList.add(this.config.tree_parent_class);
-        leaf.classList.add(this.config.tree_leaf_class);
+        leaf.classList.add("tree_leaf_click");
         // Map children for this node
         self.mapTree(element, object.children, gap, leaf);
       }

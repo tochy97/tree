@@ -29,7 +29,7 @@
     border: 2px solid black;
 }
 
-.tree_leaf:hover {
+.tree_leaf_click:hover {
     background-color: rgb(187, 187, 187);
     cursor: pointer;
 }
