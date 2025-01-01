@@ -1,7 +1,7 @@
 {
-  "name": "@egeonu/tree",
-  "version": "0.0.4",
-  "main": "lib/Tree.mjs",
+  "name": "@egeonu/tree-types",
+  "version": "0.0.1",
+  "main": "lib/src/index.js",
   "files": [
     "lib/**/*"
   ],
@@ -9,6 +9,7 @@
   "dependencies": {
     "@egeonu/react-tree": "file:",
     "@egeonu/tree": "file:",
+    "@egeonu/tree-types": "file:",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
@@ -23,6 +24,7 @@
     "start": "react-scripts start",
     "react-build": "react-scripts build",
     "build": "webpack --config webpack.config.build.ts",
+    "types": "rm -rf lib && tsc && cp src/ReactTree.css lib/src/ && fix-tsc-es-imports -y -V",
     "dev": "webpack serve --config webpack.config.dev.ts",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -59,6 +61,7 @@
     "@testing-library/react": "^16.0.1",
     "ajv": "^8.17.1",
     "css-loader": "^7.1.2",
+    "fix-tsc-es-imports": "^0.1.6",
     "globals": "^15.13.0",
     "html-webpack-plugin": "^5.6.3",
     "style-loader": "^4.0.0",

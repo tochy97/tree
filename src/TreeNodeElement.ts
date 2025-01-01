@@ -2,24 +2,6 @@
 export class TreeNodeElement extends HTMLElement {
     static observedAttributes = ["childrenId", "hiddenChildren", "disabled"];
 
-    constructor() {
-        super();
-        this.addEventListener('click', e => {
-            if (this.disabled || !this.childrenId) {
-              return;
-            }
-            
-            if (this.hiddenChildren) {
-                document.getElementById(this.childrenId).style.display = "flex";
-                this.removeAttribute('hiddenChildren');
-            }
-            else {
-                document.getElementById(this.childrenId).style.display = "none";
-                this.setAttribute('hiddenChildren', '');
-            }
-          });
-    }
-
     set hiddenChildren(val) {
         if (val) {
             this.setAttribute('hiddenChildren', '');
@@ -46,6 +28,20 @@ export class TreeNodeElement extends HTMLElement {
 
     set childrenId(id: string) {
         this.setAttribute("childrenId", id);
+        this.addEventListener('click', e => {
+            if (this.disabled || !this.childrenId) {
+              return;
+            }
+            
+            if (this.hiddenChildren) {
+                document.getElementById(this.childrenId).style.display = "flex";
+                this.removeAttribute('hiddenChildren');
+            }
+            else {
+                document.getElementById(this.childrenId).style.display = "none";
+                this.setAttribute('hiddenChildren', '');
+            }
+          });
     }
 
     get childrenId() {
