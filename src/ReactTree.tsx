@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { TreeBuilder, TreeNodeElement } from './'
+import { TreeBuilder, TreeNodeElement } from './index'
 
 import { Config, Node, TreeNode } from "./types"
 import "./ReactTree.css"

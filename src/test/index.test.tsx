@@ -1,6 +1,6 @@
 import React from 'react'
 import { fireEvent, render, screen } from '@testing-library/react';
-import ReactTree, { TreeBuilder } from "../../lib/Tree.mjs"
+import ReactTree, { TreeBuilder } from "../../lib/index.js"
 
 globalThis.console = new console.Console({
     inspectOptions: {
@@ -13,21 +13,26 @@ globalThis.console = new console.Console({
 const input = [
     {
         id: 1,
+        data: {}
     },
     {
         id: 2,
+        data: {},
         parents: [1]
     },
     {
         id: 3,
+        data: {},
         parents: [2, 1]
     },
     {
         id: 4,
+        data: {},
         parents: [2]
     },
     {
         id: 5,
+        data: {},
         parents: [2, 3, 4]
     }
 ]
