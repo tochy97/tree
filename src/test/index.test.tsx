@@ -1,6 +1,6 @@
 import React from 'react'
 import { fireEvent, render, screen } from '@testing-library/react';
-import ReactTree, { TreeBuilder } from "../../lib/src/index.js"
+import ReactTree, { TreeBuilder } from "../../lib/index.js"
 
 globalThis.console = new console.Console({
     inspectOptions: {
