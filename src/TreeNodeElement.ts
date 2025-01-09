@@ -1,6 +1,27 @@
 
 export class TreeNodeElement extends HTMLElement {
     static observedAttributes = ["childrenId", "hiddenChildren", "disabled"];
+    private displayHolder = "none";
+
+    constructor() {
+        // Always call super first in constructor
+        super();
+        this.addEventListener('click', e => {
+            if (this.disabled || !this.childrenId) {
+                return;
+            }
+
+            if (this.hiddenChildren) {
+                document.getElementById(this.childrenId).style.display = this.displayHolder;
+                this.removeAttribute('hiddenChildren');
+            }
+            else {
+                this.displayHolder = document.getElementById(this.childrenId).style.display;
+                document.getElementById(this.childrenId).style.display = "none";
+                this.setAttribute('hiddenChildren', '');
+            }
+        });
+    }
 
     set hiddenChildren(val) {
         if (val) {
@@ -24,24 +45,6 @@ export class TreeNodeElement extends HTMLElement {
         } else {
             this.removeAttribute('disabled');
         }
-    }
-
-    set childrenId(id: string) {
-        this.setAttribute("childrenId", id);
-        this.addEventListener('click', e => {
-            if (this.disabled || !this.childrenId) {
-              return;
-            }
-            
-            if (this.hiddenChildren) {
-                document.getElementById(this.childrenId).style.display = "flex";
-                this.removeAttribute('hiddenChildren');
-            }
-            else {
-                document.getElementById(this.childrenId).style.display = "none";
-                this.setAttribute('hiddenChildren', '');
-            }
-          });
     }
 
     get childrenId() {

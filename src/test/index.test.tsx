@@ -13,26 +13,26 @@ globalThis.console = new console.Console({
 const input = [
     {
         id: 1,
-        data: {}
+        data: "Test 1"
     },
     {
         id: 2,
-        data: {},
+        data: "Test 2",
         parents: [1]
     },
     {
         id: 3,
-        data: {},
+        data: "Test 3",
         parents: [2, 1]
     },
     {
         id: 4,
-        data: {},
+        data: "Test 4",
         parents: [2]
     },
     {
         id: 5,
-        data: {},
+        data: "Test 5",
         parents: [2, 3, 4]
     }
 ]
@@ -61,4 +61,11 @@ it('TreeBuilder: static invoke', () => {
 
 it("ReactTree: render test", () => {
     render(<ReactTree data={input} />);
+});
+
+it("ReactTree: click test", () => {
+    render(<ReactTree data={input} />);
+    expect(screen.getByText("Test 1").hasAttribute("hiddenChildren")).toBe(false);
+    fireEvent.click(screen.getByText("Test 1"));
+    expect(screen.getByText("Test 1").hasAttribute("hiddenChildren")).toBe(true);
 });
